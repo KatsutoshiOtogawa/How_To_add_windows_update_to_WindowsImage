@@ -16,35 +16,42 @@ $ mount-diskimage windows.iso
 iso is immutable,therefor you copy this iso and
 modify copied file.
 ```
-$ New-item  expandiso -ItemType Directory
 $ Copy-item -recurse -path X:¥ -destination expandiso
 ```
 install.wim is windows image. this file cntent of windows system file and, windows edision info.
 take a look, windows image info
 ```
-$ get-windowsimage install.wim
+$ Get-windowsimage -ImagePath .¥expandiso¥sources¥install.wim
 ```
+
 each index has different windows image info,and different file system.
 because you use all edition,you add windows update to all editions.
 
+If you need to take a look at Windows Image contents files, you execute this command.
+```
+$ $indexnum = 1
+$ Get-WindowsImageContent -ImagePath .¥expandiso¥sources¥install.wim -Index $indexnum
+```
+indexnum is index number you want to know Windows Edition has.
+
 ```
 $ New-item offline -itemType Directory
-$ Mount-Windowsimage install.wim -sourceindex 
+$ Mount-Windowsimage -ImagePath .¥expandiso¥sources¥install.wim -path .¥offline -sourceindex $indexnum
 ```
 
 ```
-$ Add-windowspackage -packagepath
+$ Add-windowspackage -path .¥offline -packagepath
 ```
 take a long time
 
 ```
-$ get-windowspackage -packagename -path 
+$ get-windowspackage -path .¥offline
 ```
 
 you look this windows image is added windows update!
 
 ```
-$ Dismount-Windowsimage -save
+$ Dismount-Windowsimage -path .¥offline -save
 ```
 
 if offline remain,you dont delete these file how to ordinaly execute command.
