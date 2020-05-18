@@ -69,11 +69,16 @@ you need to download windows adk from Microsoft officiail and install it.
 ```
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe
 ```
-[Environment]::SetEnvironmentVariable("Path", "$($Env:Path)C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg;", "Machine")
+
+you use this command without specifiing path, you need to modify Environment Variale via Powershell. 
+you open shell for Administrator.
 ```
-$ $Env:Path = $Env:Path + 
+$ [Environment]::SetEnvironmentVariable("Path", "$($Env:Path)C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg;", "Machine")
 ```
 
+```
+$ oscdimg 
+```
 
 iso instajled in and, you want to check windows update is exactly installed windows system.
 
