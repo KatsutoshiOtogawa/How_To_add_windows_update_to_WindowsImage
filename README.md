@@ -64,7 +64,15 @@ $ clear-windowscorruptmountpoint
 finaly, you create iso file from expandiso
 but, powershell doesnt have cmdlet to create iso file.
 
-windows adk
+you need to download windows adk from Microsoft officiail and install it.
+
+```
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe
+```
+
+```
+$ $Env:Path = $Env:Path + "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg;"
+```
 
 
 iso instajled in and, you want to check windows update is exactly installed windows system.
